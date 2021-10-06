@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:calculator"
+             x:Class="calculator.MainPage"
+             
+             >
+    <Grid x:Name="Stacker">
+
+        <Grid x:Name="Frame1">
+            <Frame CornerRadius="15" Padding="0" Grid.ColumnSpan="2" Margin="9,0,9,1">
+                <Image x:Name="Image" Source="{local:ImageResource Source=calculator.images.mathe.jpg}" Aspect="AspectFill" />
+            </Frame>
+
+            <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#444" Margin="9,0,9,5" Padding="6" CornerRadius="15" HasShadow="True" >
+                <ScrollView  >
+                    <Label x:Name="Text" Text="" TextDecorations="Underline" FontSize="48" TextTransform="Uppercase" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"  />
+                </ScrollView>
+            </Frame >
+        </Grid>
+
+        <Grid x:Name="Frame2" >
+            <Grid.RowDefinitions>
+            <RowDefinition Height=".25*"/>
+            <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width=".26*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.ColumnSpan="1" Margin="9,0,2,0" >
+                <Button Text="+" Grid.Column="1" FontSize="36" CornerRadius="10" Clicked="Button_Clicked" />
+                <Button Text="-" Grid.Column="2" FontSize="36" CornerRadius="10" Clicked="Button_Clicked" />
+                <Button Text="*" Grid.Column="3" FontSize="36" CornerRadius="10" Clicked="Button_Clicked" />
+                <Button Text="/" Grid.Column="0" FontSize="36" CornerRadius="10" Clicked="Button_Clicked" />
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="0,0,9,9" >
+                <Button Text="C" Grid.Row="0" FontSize="36" CornerRadius="10" Clicked="Clear" BackgroundColor="#e80"/>
+                <Button Text="=" Grid.Row="1" Grid.RowSpan="2" FontSize="48" CornerRadius="10" Clicked="Calculate"/>
+            </Grid>
+
+            <Grid Margin="9,2,2,9" Grid.Row="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Text="1" FontSize="48"   Grid.Row="0" CornerRadius="10" Clicked="Button_Clicked" />
+                <Button Text="2" Grid.Column="1" Grid.Row="0" FontSize="48" CornerRadius="10" Clicked="Button_Clicked"/>
+                <Button Text="3" Grid.Column="2" Grid.Row="0" FontSize="48" CornerRadius="10" Clicked="Button_Clicked"/>
+                <Button Text="4" Grid.Column="0" Grid.Row="1" FontSize="48" CornerRadius="10" Clicked="Button_Clicked"/>
+                <Button Text="5" Grid.Column="1" Grid.Row="1" FontSize="48" CornerRadius="10" Clicked="Button_Clicked"/>
+                <Button Text="6" Grid.Column="2" Grid.Row="1" FontSize="48" CornerRadius="10" Clicked="Button_Clicked"/>
+                <Button Text="7" Grid.Column="0" Grid.Row="2" FontSize="48" CornerRadius="10" Clicked="Button_Clicked"/>
+                <Button Text="8" Grid.Column="1" Grid.Row="2" FontSize="48" CornerRadius="10" Clicked="Button_Clicked"/>
+                <Button Text="9" Grid.Column="2" Grid.Row="2" FontSize="48" CornerRadius="10" Clicked="Button_Clicked"/>
+                <Button Text="0" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" FontSize="48" CornerRadius="10" Clicked="Button_Clicked"/>
+                <Button Text="←" Grid.Column="3" Grid.Row="0" FontSize="48" CornerRadius="10" Clicked="arrow" Pressed="Button_Pressed" Released="Button_Released" BackgroundColor="#FFFFFF" TextColor="Black" />
+            </Grid>
+        </Grid>
+    </Grid>
+</ContentPage>
