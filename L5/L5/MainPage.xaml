@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="L5.MainPage">
+
+    <StackLayout Margin="25">
+        <Entry x:Name="nameEntry" 
+               Placeholder="Name..." 
+               PlaceholderColor="Silver" />
+        <CheckBox x:Name="completedCheckBox"  />
+        <Button Text="Add" Clicked="Button_Clicked"/>
+        <CollectionView x:Name="personsColectionView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Name}" FontSize="Medium" />
+                        <Label Text="{Binding Completed}" 
+                               FontSize="Small" 
+                               TextColor="Silver" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+
+</ContentPage>
