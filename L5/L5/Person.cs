@@ -11,7 +11,9 @@ namespace L5
         public int Id { get; set; }
 
         public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Patronimic { get; set; }
 
-        public bool Completed { get; set; }
+        public int Score { get; set; }
     }
 }

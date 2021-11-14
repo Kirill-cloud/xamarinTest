@@ -25,16 +25,21 @@ namespace L5
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(nameEntry.Text))
+            int score;
+
+            if (!string.IsNullOrWhiteSpace(nameEntry.Text) && 
+                !string.IsNullOrWhiteSpace(suranameEntry.Text) && 
+                Int32.TryParse(scoreEntry.Text, out score))
             {
                 await App.DataBase.AddPersonAsync(new Person
                 {
                     Name = nameEntry.Text,
-                    Completed = completedCheckBox.IsChecked
+                    Surname = suranameEntry.Text,
+                    Patronimic = patronimicEntry.Text,
+                    Score = score,
                 });
 
                 nameEntry.Text = string.Empty;
-                completedCheckBox.IsChecked = false;
 
                 personsColectionView.ItemsSource = await
                     App.DataBase.GetPeopleAsync();

@@ -7,17 +7,36 @@
         <Entry x:Name="nameEntry" 
                Placeholder="Name..." 
                PlaceholderColor="Silver" />
-        <CheckBox x:Name="completedCheckBox"  />
+        <Entry x:Name="suranameEntry" 
+               Placeholder="Surname..." 
+               PlaceholderColor="Silver" />
+        <Entry x:Name="patronimicEntry" 
+               Placeholder="Patrinimic..." 
+               PlaceholderColor="Silver" />
+        <Entry x:Name="scoreEntry" 
+               Placeholder="Score..." 
+               PlaceholderColor="Silver" />
+        
         <Button Text="Add" Clicked="Button_Clicked"/>
         <CollectionView x:Name="personsColectionView">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Label Text="{Binding Name}" FontSize="Medium" />
-                        <Label Text="{Binding Completed}" 
-                               FontSize="Small" 
-                               TextColor="Silver" />
-                    </StackLayout>
+                <DataTemplate >
+                    <Frame BorderColor="Silver" CornerRadius="25" Margin="2" >
+                        <StackLayout>
+                        <StackLayout  >
+                            <Label Text="{Binding Surname}" FontSize="Medium" />
+                            <Label Text="{Binding Name}" FontSize="Medium" />
+                            <Label Text="{Binding Patronimic}" FontSize="Medium" />
+                            <Label Text="{Binding Score}" 
+                                   FontSize="Small" 
+                                   TextColor="Silver" />
+                        </StackLayout>
+                        <StackLayout>
+                                <Button WidthRequest="20" CommandParameter ="{Binding Id}" />
+                                <Button WidthRequest="20" CommandParameter ="{Binding Id}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
