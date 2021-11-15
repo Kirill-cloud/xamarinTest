@@ -4,11 +4,11 @@
              x:Class="L5.MainPage">
 
     <StackLayout Margin="25">
-        <Entry x:Name="nameEntry" 
-               Placeholder="Name..." 
-               PlaceholderColor="Silver" />
         <Entry x:Name="suranameEntry" 
                Placeholder="Surname..." 
+               PlaceholderColor="Silver" />
+        <Entry x:Name="nameEntry" 
+               Placeholder="Name..." 
                PlaceholderColor="Silver" />
         <Entry x:Name="patronimicEntry" 
                Placeholder="Patrinimic..." 
@@ -16,24 +16,42 @@
         <Entry x:Name="scoreEntry" 
                Placeholder="Score..." 
                PlaceholderColor="Silver" />
-        
-        <Button Text="Add" Clicked="Button_Clicked"/>
+
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Add" Clicked="AddPerson"/>
+            <Button Text="Scr>200" Clicked="Button_Clicked_1"/>
+            <Button Text="Scr&lt;200" Clicked="Button_Clicked_2"/>
+        </StackLayout>
         <CollectionView x:Name="personsColectionView">
             <CollectionView.ItemTemplate>
                 <DataTemplate >
                     <Frame BorderColor="Silver" CornerRadius="25" Margin="2" >
-                        <StackLayout>
+                        <StackLayout Orientation="Horizontal">
                         <StackLayout  >
-                            <Label Text="{Binding Surname}" FontSize="Medium" />
-                            <Label Text="{Binding Name}" FontSize="Medium" />
-                            <Label Text="{Binding Patronimic}" FontSize="Medium" />
-                            <Label Text="{Binding Score}" 
-                                   FontSize="Small" 
-                                   TextColor="Silver" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Caption"  Text="Surname: "/>
+                                    <Label Text="{Binding Surname}" FontSize="Medium" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Caption"  Text="Name: "/>
+                                    <Label Text="{Binding Name}" FontSize="Medium" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Caption" Text="Patronimic: "/>
+                                    <Label Text="{Binding Patronimic}" FontSize="Medium" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label FontSize="Caption" Text="Score: "/>
+                                    <Label Text="{Binding Score}" 
+                                           FontSize="Small" 
+                                           TextColor="Silver" />
+                                </StackLayout>
                         </StackLayout>
                         <StackLayout>
-                                <Button WidthRequest="20" CommandParameter ="{Binding Id}" />
-                                <Button WidthRequest="20" CommandParameter ="{Binding Id}" />
+                                <Button Text="Del" WidthRequest="60" Command="{Binding RemoveMe}" CommandParameter="{Binding Id}" Clicked="ResolveCommand"
+                                        />
+                                <Button Text="Edit" WidthRequest="60" Clicked="Button_Clicked_3" CommandParameter="{Binding Id}" />
+                                <Button Text="Save" WidthRequest="60" Command="{Binding UpdateMe}" CommandParameter="{Binding Id}" Clicked="Button_Clicked" />
                             </StackLayout>
                         </StackLayout>
                     </Frame>
