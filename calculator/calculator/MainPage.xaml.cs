@@ -177,5 +177,10 @@ namespace calculator
 
             }
         }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Alert", "You have been rickrolled!!!","OK"); ;
+        }
     }
 }
